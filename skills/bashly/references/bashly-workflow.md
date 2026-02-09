@@ -14,8 +14,9 @@
 2. Locate active Bashly settings and source folder.
 3. Define CLI contract (commands, args, flags, help text).
 4. Edit the active `bashly.yml`.
-5. Generate scripts with Bashly.
-6. Run `--help` and representative commands.
+5. Create or update Bashly partials in the active source folder.
+6. Generate scripts with Bashly.
+7. Run `--help` and representative commands.
 
 ## 2) Common commands
 
@@ -55,6 +56,8 @@ Practical inspection commands:
 - `ls -la src`
 
 After identifying the active settings source, inspect its configured paths first, then inspect the resolved `bashly.yml` before making edits.
+
+When implementing command behavior, add or update partial files in the resolved source folder rather than editing generated output directly.
 
 ## Official references
 

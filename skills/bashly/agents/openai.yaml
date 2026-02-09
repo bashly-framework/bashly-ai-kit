@@ -3,4 +3,4 @@ interface:
   short_description: "Create and evolve Bashly CLI projects"
   icon_small: "./assets/bashly-icon-arrow.svg"
   icon_large: "./assets/bashly-logo.svg"
-  default_prompt: "Use $bashly to design or update this Bashly CLI by editing bashly.yml and generating the command scripts."
+  default_prompt: "Use $bashly to turn this CLI idea into a complete Bashly implementation by editing bashly.yml, writing source partials, and generating command scripts."

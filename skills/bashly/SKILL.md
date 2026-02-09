@@ -4,8 +4,9 @@ description: |
    Build and maintain Bash command-line applications with the Bashly generator.
    Use when users ask to create a Bashly project, design command trees, define
    flags/arguments/options in `bashly.yml`, generate Bash scripts from Bashly
-   config, or iterate on existing Bashly-based CLIs (for example: "this is a
-   bashly project" or "help me build a bash script using bashly").
+   config, write command/lib partials in the Bashly source folder, or iterate on
+   existing Bashly-based CLIs from idea to complete script (for example: "this is
+   a bashly project" or "help me build a bash script using bashly").
 ---
 
 # Bashly Skill
@@ -30,16 +31,22 @@ Use this workflow to produce or update Bashly CLIs.
    - Keep descriptions concise and user-facing.
    - Keep command trees predictable and avoid unnecessary nesting.
 
-4. Generate CLI files with Bashly.
+4. Implement command behavior in Bashly partials.
+   - Resolve the active source folder first (default `src`, or overridden in settings/env).
+   - Create or update command and shared partial files in that source folder.
+   - Keep business logic in partials so regeneration remains safe and repeatable.
+
+5. Generate CLI files with Bashly.
    - Run the Bashly generation command from the project root.
    - If generation is unavailable in the environment, still produce valid `bashly.yml` and list the exact generation command for the user.
 
-5. Validate behavior.
+6. Validate behavior.
    - Check shell syntax for generated scripts when possible.
    - Exercise representative command paths (`--help`, one success path, one argument/flag error path).
 
-6. Document what changed.
+7. Document what changed.
    - Summarize command tree changes and any backward-incompatible flag/argument changes.
+   - Summarize which partial files were added/updated in the source folder.
    - Provide quick usage examples for the most important commands.
 
 ## Use Bundled Resources
@@ -57,5 +64,6 @@ Use this workflow to produce or update Bashly CLIs.
 ## Output Expectations
 
 - Produce only files needed for the requested CLI behavior.
+- Ensure required source partials are present so generated scripts implement the requested behavior.
 - Keep generated UX consistent: clear descriptions, stable command names, and practical defaults.
 - Prefer explicit examples in final responses (`tool command --flag value`) for each major command.
