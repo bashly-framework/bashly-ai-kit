@@ -1,0 +1,6 @@
+interface:
+  display_name: "Bashly Builder"
+  short_description: "Create and evolve Bashly CLI projects"
+  icon_small: "./assets/bashly-icon-arrow.svg"
+  icon_large: "./assets/bashly-logo.svg"
+  default_prompt: "Use $bashly to design or update this Bashly CLI by editing bashly.yml and generating the command scripts."
