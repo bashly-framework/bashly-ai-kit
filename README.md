@@ -1,9 +1,22 @@
-# Bashly Skill for Coding Agents
+# Bashly AI Kit
 
-`bashly` helps an agent build and maintain Bash CLI projects using
+This repository includes Bashly resources for AI-assisted workflows, including
+coding skills and a Custom GPT companion.
+
+## Custom GPT
+
+For quick learning and ad-hoc help, use the Bashly Custom GPT at
+[bashly.dev/chat](https://bashly.dev/chat) (redirects to a ChatGPT custom chat).
+
+This is a good fit if you want Bashly guidance without committing to a Codex or
+Claude skill setup.
+
+## Skill for Agents
+
+This skill helps an agent build and maintain Bash CLI projects using
 [Bashly](https://bashly.dev/).
 
-## What it does
+### What it does
 
 - Builds or updates `bashly.yml` command trees
 - Writes and updates Bashly partials in the active source folder (for example under `src/`)
@@ -13,7 +26,7 @@
 - Translates a rough CLI idea into a complete implementation: command design, config, partials, generation, and validation
 - Refreshes syntax against official docs/examples when internet is available
 
-## Install in Codex
+### Install in Codex
 
 Use the built-in installer skill:
 
@@ -24,7 +37,7 @@ install the skill from https://github.com/bashly-framework/bashly-ai-kit/tree/ma
 (master branch)
 ```
 
-## Install in Claude Code
+### Install in Claude Code
 
 Claude Code supports project and user skill locations:
 
@@ -33,11 +46,3 @@ Claude Code supports project and user skill locations:
 
 Copy `skills/bashly` from this repo into one of those locations
 ([reference](https://docs.claude.com/en/docs/claude-code/sub-agents#manage-skills)).
-
-## Official references used by the skill
-
-- https://bashly.dev/
-- https://bashly.dev/usage/settings/
-- https://bashly.dev/examples/
-- https://github.com/bashly-framework/bashly
-- https://github.com/bashly-framework/bashly/tree/master/examples
