@@ -17,16 +17,11 @@
 
 Use the built-in installer skill:
 
-1. In Codex chat, run `$skill-installer`
-2. Ask it to install from this GitHub URL:
-   - `https://github.com/bashly-framework/bashly-ai-kit/tree/main/skills/bashly`
-3. Restart Codex after install
-
-Alternative prompt:
+In Codex chat, use this prompt
 
 ```
-Install this skill from GitHub:
-https://github.com/bashly-framework/bashly-ai-kit/tree/main/skills/bashly
+install the skill from https://github.com/bashly-framework/bashly-ai-kit/tree/main/skills/bashly
+(master branch)
 ```
 
 ## Install in Claude Code
