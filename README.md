@@ -2,6 +2,8 @@
 
 This repository includes Bashly resources for AI-assisted workflows, including
 coding skills and a Custom GPT companion.
+It also includes prompt source material in `prompts/`, including a quick
+ad-hoc `AGENTS.md` for using AI coding agents without installing the full skill.
 
 ## Custom GPT
 
