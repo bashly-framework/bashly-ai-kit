@@ -1,17 +1,20 @@
 # Bashly AI Kit
 
 This repository includes Bashly resources for AI-assisted workflows, including
-coding skills and a Custom GPT companion.
+coding skills and chat assistant prompts for ChatGPT and Claude.
 It also includes prompt source material in `prompts/`, including a quick
 ad-hoc `AGENTS.md` for using AI coding agents without installing the full skill.
 
-## Custom GPT
+## Chat Assistants
 
-For quick learning and ad-hoc help, use the Bashly Custom GPT at
-[bashly.dev/chat](https://bashly.dev/chat) (redirects to a ChatGPT custom chat).
+For quick learning and ad-hoc help without installing a skill:
+
+- **ChatGPT**: Use the Bashly Custom GPT at [bashly.dev/chat](https://bashly.dev/chat).
+- **Claude.ai Project**: Create a new [Claude.ai Project](https://claude.ai) and paste
+  the contents of `prompts/prompt.md` into its instructions field.
 
 This is a good fit if you want Bashly guidance without committing to a Codex or
-Claude skill setup.
+Claude Code skill setup.
 
 ## Skill for Agents
 
@@ -47,4 +50,4 @@ Claude Code supports project and user skill locations:
 - User skill: `~/.claude/skills/bashly/SKILL.md`
 
 Copy `skills/bashly` from this repo into one of those locations
-([reference](https://docs.claude.com/en/docs/claude-code/sub-agents#manage-skills)).
+([reference](https://code.claude.com/docs/en/skills)).
