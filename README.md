@@ -44,10 +44,14 @@ install the skill from https://github.com/bashly-framework/bashly-ai-kit/tree/ma
 
 ### Install in Claude Code
 
-Claude Code supports project and user skill locations:
+In Claude Code, use this prompt:
 
-- Project skill: `.claude/skills/bashly/SKILL.md`
-- User skill: `~/.claude/skills/bashly/SKILL.md`
+```
+Install the Bashly skill from https://github.com/bashly-framework/bashly-ai-kit
+into my user skills directory (~/.claude/skills/bashly/)
+```
 
-Copy `skills/bashly` from this repo into one of those locations
-([reference](https://code.claude.com/docs/en/skills)).
+Claude Code will clone the repository and copy the skill for you.
+
+For manual installation or project-level install, see the
+[skills reference](https://code.claude.com/docs/en/skills).
