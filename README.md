@@ -1,57 +1,73 @@
 # Bashly AI Kit
 
-This repository includes Bashly resources for AI-assisted workflows, including
-coding skills and chat assistant prompts for ChatGPT and Claude.
-It also includes prompt source material in `prompts/`, including a quick
-ad-hoc `AGENTS.md` for using AI coding agents without installing the full skill.
+Bashly AI Kit provides reusable instructions and references for working with
+[Bashly](https://bashly.dev/) in Codex, Claude Code, and other coding-agent
+environments.
 
-## Chat Assistants
+The repository contains:
 
-For quick learning and ad-hoc help without installing a skill:
+- A reusable Bashly skill under `skills/bashly/`
+- A portable `AGENTS.md` template under `templates/`
 
-- **ChatGPT**: Use the Bashly Custom GPT at [bashly.dev/chat](https://bashly.dev/chat).
-- **Claude.ai Project**: Create a new [Claude.ai Project](https://claude.ai) and paste
-  the contents of `prompts/prompt.md` into its instructions field.
+The skill helps coding agents:
 
-This is a good fit if you want Bashly guidance without committing to a Codex or
-Claude Code skill setup.
+- Learning Bashly concepts and configuration
+- Building or updating `bashly.yml` command trees
+- Writing Bashly command and library partials
+- Locating projects that use non-default settings or source paths
+- Generating and validating Bashly CLIs when the host can run commands
+- Troubleshooting errors with current Bashly documentation and examples
 
-## Skill for Agents
+Capabilities depend on the host. A coding agent can edit a repository, run
+Bashly, and validate the generated CLI when those tools are available.
 
-This skill helps an agent build and maintain Bash CLI projects using
-[Bashly](https://bashly.dev/).
+## Install the Skill
 
-### What it does
+### Codex
 
-- Builds or updates `bashly.yml` command trees
-- Writes and updates Bashly partials in the active source folder (for example under `src/`)
-- Uses `bashly init` / `bashly init --minimal` for new projects
-- Uses `bashly generate` flows for regeneration
-- Handles default and overridden settings layouts (`src`, settings files, env)
-- Translates a rough CLI idea into a complete implementation: command design, config, partials, generation, and validation
-- Refreshes syntax against official docs/examples when internet is available
+Use the built-in skill installer with this request:
 
-### Install in Codex
-
-Use the built-in installer skill:
-
-In Codex chat, use this prompt
-
-```
-install the skill from https://github.com/bashly-framework/bashly-ai-kit/tree/main/skills/bashly
-(master branch)
+```text
+Install the skill from https://github.com/bashly-framework/bashly-ai-kit/tree/master/skills/bashly
 ```
 
-### Install in Claude Code
+### Claude Code
 
-In Claude Code, use this prompt:
+Ask Claude Code to install the skill in your user skills directory:
 
-```
+```text
 Install the Bashly skill from https://github.com/bashly-framework/bashly-ai-kit
 into my user skills directory (~/.claude/skills/bashly/)
 ```
 
-Claude Code will clone the repository and copy the skill for you.
+For manual installation or project-level installation, see the
+[Claude Code skills reference](https://code.claude.com/docs/en/skills).
 
-For manual installation or project-level install, see the
-[skills reference](https://code.claude.com/docs/en/skills).
+## Update the Skill
+
+Ask your coding agent to replace the existing installation with the current
+version from GitHub:
+
+```text
+Update the installed Bashly skill from:
+https://github.com/bashly-framework/bashly-ai-kit/tree/master/skills/bashly
+
+Replace the existing installation.
+```
+
+## Zero-install AGENTS.md Template
+
+If installing a skill is not practical, copy
+[`templates/AGENTS.md`](templates/AGENTS.md) into the root of a Bashly project.
+It gives a coding agent a compact Bashly workflow without requiring a global
+installation.
+
+For example, place it in a new empty directory and ask your agent:
+
+```text
+Build a Bashly CLI with subcommands for several categories of funny,
+motivational quotes, and print one random quote for the selected category.
+```
+
+The skill is the canonical maintained workflow. Keep the template aligned with
+the skill where the two formats overlap.

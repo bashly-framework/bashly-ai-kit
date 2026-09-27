@@ -1,17 +1,31 @@
 ---
 name: bashly
 description: |
-   Build and maintain Bash command-line applications with the Bashly generator.
-   Use when users ask to create a Bashly project, design command trees, define
-   flags/arguments/options in `bashly.yml`, generate Bash scripts from Bashly
-   config, write command/lib partials in the Bashly source folder, or iterate on
-   existing Bashly-based CLIs from idea to complete script (for example: "this is
-   a bashly project" or "help me build a bash script using bashly").
+   Build, explain, troubleshoot, and maintain Bash command-line applications
+   with the Bashly generator. Use for Bashly questions and examples, designing
+   command trees, defining flags and arguments in `bashly.yml`, converting shell
+   scripts to Bashly, generating command scripts, writing source partials, or
+   working on an existing Bashly project.
 ---
 
 # Bashly Skill
 
-Use this workflow to produce or update Bashly CLIs.
+Use this skill for Bashly guidance and for producing or updating Bashly CLIs.
+
+## Choose the Interaction Mode
+
+- For questions, explanations, examples, reviews, or troubleshooting requests,
+  answer at the requested depth without changing files or running commands unless
+  the user also asks for implementation or validation.
+- For implementation requests, inspect the project and carry the change through
+  generation and validation when the environment permits it.
+- If the user provides a repository or files, tailor the answer or implementation
+  to its existing structure and settings.
+- State material assumptions. Ask a focused question only when an unresolved
+  choice would substantially change the result; otherwise make a reasonable
+  assumption and continue.
+- Keep explanations practical. Use runnable `yaml` and `bash` examples and show
+  expected output when it materially helps.
 
 ## Follow Workflow
 
@@ -21,13 +35,13 @@ Use this workflow to produce or update Bashly CLIs.
    - Use `references/bashly-workflow.md` to locate the effective `bashly.yml` when defaults are overridden.
    - When users need non-default paths, add or update settings with `bashly add settings`.
 
-2. Define CLI contract before editing files.
+2. Define the CLI contract before editing files.
    - Capture command groups, subcommands, required args, optional args, and flags.
    - Confirm naming and UX details (short flags, long flags, help text, defaults, required constraints).
 
 3. Author or update `bashly.yml`.
    - For new projects, initialize with `bashly init` or `bashly init --minimal` based on requested scope.
-   - Prefer incremental edits to preserve compatibility in existing projects.
+   - Keep edits focused and follow the existing project's conventions.
    - Keep descriptions concise and user-facing.
    - Keep command trees predictable and avoid unnecessary nesting.
 
@@ -54,12 +68,33 @@ Use this workflow to produce or update Bashly CLIs.
 - Read `references/bashly-workflow.md` for command design heuristics, common Bashly operations, and troubleshooting.
 - Use the icon asset in `assets/` for skill metadata/UI integration when relevant.
 
-## Use Online Sources
+## Use Bashly Reference Sources
 
-- When internet access is available, verify syntax and options against official Bashly docs before finalizing changes.
-- Prioritize sources in this order: Bashly docs (`bashly.dev`), official examples, then `bashly-framework/bashly` repository.
-- Use online sources especially for settings behavior, advanced features (`bashly add ...`), and version-sensitive commands.
-- If internet access is unavailable, continue using local project files and `references/bashly-workflow.md`, then state that online verification could not be performed.
+- For exact configuration keys, use `bashly doc [SEARCH]` when Bashly is
+  installed and read-only command execution is consistent with the interaction
+  mode. Use `bashly doc --index` to discover available keys. This reference
+  matches the installed Bashly version.
+- Do not run `bashly doc` when the user or environment disallows commands;
+  recommend the command instead and continue with the available sources.
+- When internet access is available, verify syntax and options against official
+  Bashly documentation before finalizing changes.
+- Prefer Markdown endpoints when retrieving pages from `bashly.dev`: use
+  `https://bashly.dev/index.md` for the home page, or remove a page's trailing
+  slash and append `.md` (for example,
+  `https://bashly.dev/usage/getting-started.md`). Fall back to the normal HTML
+  page if a Markdown endpoint is unavailable.
+- Prioritize sources in this order: the installed-version reference from
+  `bashly doc` when applicable, Bashly docs (`bashly.dev`), the Bashly
+  documentation source (`bashly-framework/bashly-book`), official examples,
+  then the `bashly-framework/bashly` repository.
+- Use current sources especially for settings behavior, advanced features
+  (`bashly add ...`), and version-sensitive commands.
+- Link users to the normal human-facing documentation page unless the raw
+  Markdown is specifically useful. Link to the exact page, section, or source
+  location when the user benefits from a citation. Do not invent links.
+- If internet access is unavailable, continue using the installed reference,
+  local project files, and `references/bashly-workflow.md`, then state which
+  sources could not be checked.
 
 ## Output Expectations
 
@@ -67,3 +102,4 @@ Use this workflow to produce or update Bashly CLIs.
 - Ensure required source partials are present so generated scripts implement the requested behavior.
 - Keep generated UX consistent: clear descriptions, stable command names, and practical defaults.
 - Prefer explicit examples in final responses (`tool command --flag value`) for each major command.
+- For troubleshooting, identify the observed failure separately from assumptions and proposed fixes.

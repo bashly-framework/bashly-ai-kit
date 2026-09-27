@@ -5,8 +5,9 @@
 1. Quick sequence
 2. Common commands
 3. Locate active project configuration
-4. Design heuristics
-5. Troubleshooting checklist
+4. Look up Bashly documentation
+5. Design heuristics
+6. Troubleshooting checklist
 
 ## 1) Quick sequence
 
@@ -25,6 +26,8 @@ Run these from the project root as applicable:
 - `bashly init`
 - `bashly init --minimal`
 - `bashly add settings`
+- `bashly doc [SEARCH]`
+- `bashly doc --index`
 - `bashly generate`
 - `bashly generate --upgrade`
 
@@ -62,7 +65,7 @@ When implementing command behavior, add or update partial files in the resolved 
 ## Official references
 
 - Main docs: `https://bashly.dev/`
-- Getting started: `https://bashly.dev/getting-started/`
+- Getting started: `https://bashly.dev/usage/getting-started/`
 - Command cheatsheet: `https://bashly.dev/cheatsheet/`
 - Settings docs: `https://bashly.dev/usage/settings/`
 - Configuration docs: `https://bashly.dev/configuration/`
@@ -80,16 +83,44 @@ High-value examples to consult first:
 - `filters`, `validations`, `hooks` for advanced command behavior.
 - `render-markdown`, `render-mandoc` for docs generation flows.
 
-## Online refresh checklist
+## 4) Look up Bashly documentation
+
+Use `bashly doc [SEARCH]` for the configuration reference that matches the
+installed Bashly version. It supports focused lookups such as:
+
+- `bashly doc command`
+- `bashly doc command.flags`
+- `bashly doc catch_all`
+- `bashly doc flag. --index`
+
+Use `bashly doc --index` to list reference keys. This command is most useful for
+configuration fields and their accepted values; use the full documentation for
+tutorials, examples, and broader workflows.
+
+When retrieving a page from `bashly.dev`, prefer its Markdown representation:
+
+- Home page: `https://bashly.dev/index.md`
+- A page ending in `/`: remove the trailing slash and append `.md`.
+- Example: `https://bashly.dev/usage/getting-started/` becomes
+  `https://bashly.dev/usage/getting-started.md`.
+
+If the Markdown endpoint is unavailable, use the normal HTML page or the source
+in `https://github.com/bashly-framework/bashly-book`. In user-facing answers,
+normally link to the HTML page rather than the raw Markdown representation.
+
+### Online refresh checklist
 
 Use this when internet access is available and the task depends on current syntax/features:
 
-1. Confirm the operation in official docs (`bashly.dev`) before editing project files.
-2. Validate structure against one similar official example (`bashly.dev/examples` or repo `examples/`).
-3. If behavior seems version-sensitive, check repo state/release notes before concluding.
-4. Prefer project-local conventions only when they do not contradict official docs.
+1. Check the installed-version reference with `bashly doc [SEARCH]` when command
+   execution is allowed and the question concerns configuration syntax.
+2. Confirm the operation in official docs, preferably through the matching
+   `bashly.dev` Markdown endpoint, before editing project files.
+3. Validate structure against one similar official example (`bashly.dev/examples` or repo `examples/`).
+4. If behavior seems version-sensitive, check repo state/release notes before concluding.
+5. Prefer project-local conventions only when they do not contradict official docs.
 
-## 4) Design heuristics
+## 5) Design heuristics
 
 - Keep top-level commands task-oriented (`build`, `deploy`, `list`) and stable over time.
 - Prefer explicit long flags and optional short aliases only when they are obvious.
@@ -97,7 +128,7 @@ Use this when internet access is available and the task depends on current synta
 - Use command descriptions that tell the user what happens, not implementation details.
 - Minimize hidden behavior; expose impactful options as flags.
 
-## 5) Troubleshooting checklist
+## 6) Troubleshooting checklist
 
 - Generation fails:
   - Confirm active source path contains `bashly.yml` (not always project root).
